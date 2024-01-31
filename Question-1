@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+#define MAX 100
+
+int main(void)
+{
+    int n,arr[MAX],i,key,comp=0;
+    cout<<"Enter the number of elements : ";
+    cin>>n;
+    cout<<"Enter the elements of the array : ";
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+    cout<<"Enter the element you are searching for : ";
+    cin>>key;
+    for(i=0;i<n;i++)
+    {
+        comp++;
+        if(arr[i] == key)
+        {
+            cout<<"Present "<<comp<<endl;
+            break;
+        }
+    }
+    if(i==n)
+    {
+        cout<<"Not Present "<<comp<<endl;
+    }
+    return 0;
+}
