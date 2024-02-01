@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+#define MAX 100
+
+int main(void)
+{
+    int n,arr[MAX],key,i,j,copy=0;
+    cout<<"Enter the number of elements : ";
+    cin>>n;
+    cout<<"Enter the element of the array : ";
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+    cout<<"Enter the key you are searching for : ";
+    cin>>key;
+    for(i=0;i<n && arr[i]<=key;i++)
+    {
+        if(arr[i] == key)
+        {
+            copy++;
+        }
+    }
+    if(copy==0)
+        cout<<"Key not present\n";
+    else
+    {
+        cout<<key<<" - "<<copy<<endl;
+    }
+    return 0;
+}
