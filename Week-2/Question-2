@@ -1,0 +1,41 @@
+#include<iostream>
+#define MAX 100
+
+using namespace std;
+
+int main(void)
+{
+    int n,arr[MAX],i,j,k;
+    cout<<"Enter the number of elements : ";
+    cin>>n;
+    cout<<"enter the elements of the array : ";
+    for(i=1;i<=n;i++)
+        cin>>arr[i];
+    // k = n;
+   
+    for(k=n;k>2;k--)
+    {
+        i=1;
+        j=k-1;
+        while(i<=n)
+        {
+            if(arr[i] + arr[j] == arr[k])
+            {
+                cout<<i<<", "<<j<<", "<<k<<endl;
+            }
+            else if(arr[i] + arr[j] < arr[k])
+            {
+                i++;
+            }
+            else if(arr[i] + arr[j] > arr[k])
+            {
+                j--;
+            }
+        }
+    }
+    if(i==n)
+    {
+        cout<<"Sequence not found"<<endl;
+    }
+    return 0;
+}
