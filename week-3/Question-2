@@ -1,0 +1,35 @@
+#include<iostream>
+#define MAX 100
+
+using namespace std;
+
+int main(void)
+{
+    int n,arr[MAX],i,j,k,comp=0,shifts=0;
+    cout<<"Enter the number of elements : ";
+    cin>>n;
+    cout<<"Enter the elements : ";
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+    for(i=1;i<n;i++)
+    {
+        shifts++;
+        j = i-1;
+        k = arr[i];
+        while(j>=0 && arr[j] > k)
+        {
+            comp++;
+            shifts++;
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = k;
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\nComparisons = "<<comp;
+    cout<<"\nShifts = "<<shifts;
+    return 0;
+}
