@@ -1,7 +1,10 @@
 #include<iostream>
+#include<stdlib.h>
 #define MAX 100
 
 using namespace std;
+
+bool found(int *,int);
 
 int main(void)
 {
@@ -9,21 +12,27 @@ int main(void)
     cout<<"Enter the number of elements : ";
     cin>>n;
     cout<<"enter the elements of the array : ";
-    for(i=1;i<=n;i++)
-        cin>>arr[i];
-    // k = n;
-   
-    for(k=n;k>2;k--)
+    for(i=0;i<n;i++)
     {
-        i=1;
+        cin>>arr[i];
+    }
+    if(!found(arr,n))
+    {
+        cout<<"No sequence found\n";
+    }
+    return 0;
+}
+bool found(int *arr,int n)
+{
+    int i,j,k;
+
+    for(k=n-1;k>=0;k--)
+    {
         j=k-1;
-        while(i<=n)
+        i=0;
+        while(i<j)
         {
-            if(arr[i] + arr[j] == arr[k])
-            {
-                cout<<i<<", "<<j<<", "<<k<<endl;
-            }
-            else if(arr[i] + arr[j] < arr[k])
+            if(arr[i] + arr[j] < arr[k])
             {
                 i++;
             }
@@ -31,11 +40,12 @@ int main(void)
             {
                 j--;
             }
+            else
+            {
+                cout<<i+1<<", "<<j+1<<", "<<k+1<<endl;
+                return true;
+            }
         }
     }
-    if(i==n)
-    {
-        cout<<"Sequence not found"<<endl;
-    }
-    return 0;
+    return false;
 }
