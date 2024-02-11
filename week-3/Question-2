@@ -1,1 +1,42 @@
+#include<iostream>
+#define MAX 100
 
+using namespace std;
+
+int main(void)
+{
+    int n,arr[MAX],i,min,comp=0,swaps=0;
+    cout<<"Enter the number of elements : ";
+    cin>>n;
+    cout<<"Enter the elements of the array : ";
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    for(i=0;i<n-1;i++)
+    {
+        min = i;
+        for(int j=i+1;j<n;j++)
+        {
+            comp++;
+            if(arr[min] > arr[j])
+            {
+                min = j;
+            }
+        }
+        if(i!=min)
+        {
+            swaps++;
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\nComparisons = "<<comp;
+    cout<<"\nSwaps = "<<swaps;
+    return 0;
+}
